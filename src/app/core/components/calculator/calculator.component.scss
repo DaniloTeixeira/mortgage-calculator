@@ -41,3 +41,68 @@
     background-color: #194dfa;
     opacity: 25%;
 }
+
+/* @media queries */
+@media (width < 820px) {
+    .card {
+        padding: 10px;
+    }
+
+    .card__main {
+        max-height: 45vh;
+        max-width: 80vw;
+    }
+
+    .card__aside {
+        max-height: 30vh;
+        max-width: 80vw;
+    }
+}
+
+@media (width >= 820px) and (width < 1024px) {
+    .card {
+        padding: 10px;
+    }
+
+    .card__main {
+        max-height: 35vh;
+        max-width: 50vw;
+    }
+
+    .card__aside {
+        max-height: 30vh;
+        max-width: 38vw;
+    }
+}
+
+@media (width >= 1024px) and (width < 1460px) {
+    .card {
+        padding: 10px;
+    }
+
+    .card__main {
+        max-height: 40vh;
+        max-width: 50vw;
+    }
+
+    .card__aside {
+        max-height: 30vh;
+        max-width: 39vw;
+    }
+}
+
+@media (width >= 1460px) {
+    .card {
+        padding: 10px;
+    }
+
+    .card__main {
+        max-height: 40vh;
+        max-width: 80vw;
+    }
+
+    .card__aside {
+        max-height: 30vh;
+        max-width: 80vw;
+    }
+}
