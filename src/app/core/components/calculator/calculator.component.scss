@@ -1,0 +1,42 @@
+.card {
+    padding: 40px;
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0px 10px 16px 0px #000f3314;
+}
+
+.card__main {
+    width: 816px;
+    height: 812px;
+}
+
+.card__aside {
+    width: 456px;
+    height: 441px;
+}
+
+.n-tracker {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-direction: column;
+
+    width: 24px;
+    height: 580px;
+    padding: 8px;
+}
+
+.n-tracker__item {
+    width: 8px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.n-tracker__item--active {
+    background-color: #194dfa;
+}
+
+.n-tracker__item--inactive {
+    background-color: #194dfa;
+    opacity: 25%;
+}

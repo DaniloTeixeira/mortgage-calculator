@@ -1,8 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [ "./src/**/*.{html,js}" ],
+  content: [ './src/**/*.{html,js}' ],
   theme: {
-    extend: {},
+    fontSize: {
+      base: '18px',
+    }
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
+  daisyui: {
+    themes: [ {
+      mytheme: {
+        'primary': '#194DFA',
+        'neutral': '#fff'
+      }
+    } ]
+  }
 }
