@@ -15,7 +15,7 @@
     height: 441px;
 }
 
-.n-tracker {
+.nav-tracker {
     display: flex;
     gap: 12px;
     align-items: center;
@@ -26,17 +26,18 @@
     padding: 8px;
 }
 
-.n-tracker__item {
+.nav-tracker__item {
     width: 8px;
     height: 60px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
-.n-tracker__item--active {
+.nav-tracker__item--active {
     background-color: #194dfa;
 }
 
-.n-tracker__item--inactive {
+.nav-tracker__item--inactive {
     background-color: #194dfa;
     opacity: 25%;
 }

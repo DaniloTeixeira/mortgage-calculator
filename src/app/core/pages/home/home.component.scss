@@ -1,0 +1,27 @@
+.n-tracker {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-direction: column;
+
+    width: 24px;
+    height: 580px;
+    padding: 8px;
+    margin-right: 5px;
+}
+
+.n-tracker__item {
+    width: 8px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.n-tracker__item--active {
+    background-color: #194dfa;
+}
+
+.n-tracker__item--inactive {
+    background-color: #194dfa;
+    opacity: 25%;
+}
