@@ -2,9 +2,6 @@
 module.exports = {
   content: [ './src/**/*.{html,js}' ],
   theme: {
-    fontSize: {
-      base: '18px',
-    }
   },
   plugins: [
     require('daisyui'),

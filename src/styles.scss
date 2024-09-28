@@ -1,3 +1,6 @@
+/* Variables */
+@use "./assets/styles/scss/variables" as *;
+
 /* Tailwind CSS */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -26,11 +29,18 @@ body {
     background-image: url("./assets/images/bg-image.png");
 }
 
+.text-primary {
+    color: $text-primary;
+}
+
+.text-secondary {
+    color: $text-secondary;
+}
+
 /* Daisy UI -> Custom styles */
 .btn {
     @apply rounded-full;
     @apply font-medium;
-    @apply text-base;
 }
 
 .btn-primary {
@@ -46,6 +56,18 @@ body {
     @apply h-[32.5px];
     @apply w-[32.5px];
     @apply min-h-fit;
+}
+
+.input,
+.select {
+    @apply border-e;
+    @apply border-[#d1d7da];
+    @apply bg-[#f9f9f9];
+    @apply h-[52px];
+}
+
+.input {
+    @apply w-[350px];
 }
 
 /* @media queries */

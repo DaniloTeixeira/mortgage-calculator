@@ -42,6 +42,11 @@
     opacity: 25%;
 }
 
+.header-text {
+    font-weight: 600;
+    text-align: start;
+}
+
 /* @media queries */
 @media (width < 820px) {
     .card {
