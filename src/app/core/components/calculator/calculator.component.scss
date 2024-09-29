@@ -134,7 +134,6 @@
 
 .custom-select {
     position: relative;
-    width: 350px;
     height: 52px;
     padding: 16px 14px 16px 16px;
     border-radius: 8px;
@@ -142,6 +141,7 @@
     cursor: pointer;
     color: $text-primary;
     text-align: start;
+    z-index: 1;
 
     &__options {
         display: flex;
@@ -152,7 +152,7 @@
         left: 0;
 
         z-index: 0;
-        width: 336px;
+        width: 308px;
         font-size: 12px;
         border-radius: 8px;
         background-color: #fff;
@@ -160,7 +160,6 @@
     }
 
     &__option {
-        width: 336px;
         height: 40px;
         padding: 12px 16px;
 

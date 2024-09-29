@@ -69,13 +69,9 @@ body {
 
 .input,
 .select {
-    @apply border-e;
-    @apply border-[#d1d7da];
+    @apply border-none;
     @apply bg-[#f9f9f9];
     @apply h-[52px];
-}
-
-.input {
     @apply w-[350px];
 }
 
