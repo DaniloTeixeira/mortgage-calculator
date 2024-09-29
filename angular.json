@@ -86,10 +86,10 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              // {
-              //   "glob": "**/*",
-              //   "input": "public"
-              // },
+              {
+                "glob": "**/*",
+                "input": "public"
+              },
               {
                 "glob": "**/*",
                 "input": "src/assets" 

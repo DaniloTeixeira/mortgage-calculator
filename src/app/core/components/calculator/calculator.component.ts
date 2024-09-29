@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { OPTIONS } from '@constants/options';
 import { Option } from '@interfaces/option.interface';
+
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 @Component({
@@ -12,6 +15,18 @@ import { Option } from '@interfaces/option.interface';
   styleUrl: './calculator.component.scss'
 })
 export class CalculatorComponent {
+  @HostListener('document:click', ['$event'])
+  trackClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    if (!target.closest(`#${this.hashID}`)) {
+      this.showOption = false;
+    }
+
+    event.stopPropagation();
+  }
+
+  public readonly hashID = uuidv4();
   public showOption = false;
   public readonly options = OPTIONS;
   public selectedOption = this.options[1];
@@ -42,6 +57,5 @@ export class CalculatorComponent {
     });
 
     this.selectedOption = option;
-    console.log(this.options);
   }
 }
