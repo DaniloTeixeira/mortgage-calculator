@@ -17,4 +17,6 @@ export class CalculatorComponent {
   this.selectedNavigationItem = index;
   }
 
+  
+
 }
