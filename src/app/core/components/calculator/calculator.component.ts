@@ -3,7 +3,6 @@ import { Component, HostListener } from '@angular/core';
 import { OPTIONS } from '@constants/options';
 import { Option } from '@interfaces/option.interface';
 
-import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -19,14 +18,13 @@ export class CalculatorComponent {
   trackClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
 
-    if (!target.closest(`#${this.hashID}`)) {
+    if (!target.closest('#za6e0804_2bd0_4672-b79d_d97027f9071a')) {
       this.showOption = false;
     }
 
     event.stopPropagation();
   }
 
-  public readonly hashID = uuidv4();
   public showOption = false;
   public readonly options = OPTIONS;
   public selectedOption = this.options[1];

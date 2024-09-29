@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { CalculatorComponent } from '@components/calculator';
 import { FooterComponent } from '@components/footer';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
