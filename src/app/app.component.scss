@@ -1,0 +1,14 @@
+.bg-image {
+    border-radius: 12px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("src/assets/images/png/bg-image.png");
+
+    /* @media queries */
+    @media (width > 1400px) {
+        max-height: 960px;
+        max-width: 1440px;
+    }
+}

@@ -7,13 +7,23 @@
 }
 
 .card__main {
-    width: 816px;
-    height: 812px;
-    padding: 40px;
+    max-width: 816px;
+    min-height: 812px;
+    padding: 60px;
+
+    @media (width < 992px) {
+        padding: 30px;
+        min-height: fit-content;
+    }
+
+    @media (width < 576px) {
+        padding: 15px;
+        max-width: 100vw;
+    }
 }
 
 .card__aside {
-    width: 456px;
+    max-width: 456px;
     height: 441px;
     padding: 24px;
 
@@ -29,23 +39,48 @@
         border-radius: 8px;
         background-color: #f3f7ff;
     }
+
+    @media (width <= 1024px) {
+        width: auto;
+        padding: 10px;
+    }
 }
 
 .nav-tracker {
     display: flex;
     gap: 12px;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    flex-grow: 1;
 
     width: 24px;
     height: 580px;
     padding: 8px;
+
+    @media (width <= 1024px) {
+        flex-grow: 0;
+        gap: 15px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+    }
 
     &__item {
         width: 8px;
         height: 60px;
         border-radius: 10px;
         cursor: pointer;
+
+        @media (width <= 1024px) {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
     }
 }
 
@@ -66,71 +101,6 @@
 .hide-info {
     filter: blur(20px);
 }
-
-/* @media queries */
-// @media (width < 820px) {
-//     .card {
-//         padding: 10px;
-//     }
-
-//     .card__main {
-//         max-height: 45vh;
-//         max-width: 80vw;
-//     }
-
-//     .card__aside {
-//         max-height: 30vh;
-//         max-width: 80vw;
-//     }
-// }
-
-// @media (width >= 820px) and (width < 1024px) {
-//     .card {
-//         padding: 10px;
-//     }
-
-//     .card__main {
-//         max-height: 35vh;
-//         max-width: 50vw;
-//     }
-
-//     .card__aside {
-//         max-height: 30vh;
-//         max-width: 38vw;
-//     }
-// }
-
-// @media (width >= 1024px) and (width < 1460px) {
-//     .card {
-//         padding: 10px;
-//     }
-
-//     .card__main {
-//         max-height: 40vh;
-//         max-width: 50vw;
-//     }
-
-//     .card__aside {
-//         max-height: 30vh;
-//         max-width: 39vw;
-//     }
-// }
-
-// @media (width >= 1460px) and (width < 1820px) {
-//     .card {
-//         padding: 10px;
-//     }
-
-//     .card__main {
-//         max-height: 40vh;
-//         max-width: 80vw;
-//     }
-
-//     .card__aside {
-//         max-height: 30vh;
-//         max-width: 80vw;
-//     }
-// }
 
 .custom-select {
     position: relative;
