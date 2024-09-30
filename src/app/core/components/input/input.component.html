@@ -1,0 +1,14 @@
+<label class="w-full max-w-xs">
+    <div class="flex gap-2 items-center mb-4">
+        <img src="svg/question-icon.svg" alt="White question mark on a gray background">
+        <span class="text-primary text-sm md:text-base">{{ label() }}</span>
+        <span class="text-secondary text-sm md:text-base">{{ required() ? 'Required' : '' }}</span>
+    </div>
+
+    <div class="relative">
+        <img class="euro-icon" src="svg/euro-icon.svg" alt="Euro icon">
+    </div>
+    <input type="number" inputmode="numeric" class="input input-primary w-full max-w-xs ps-10 text-lg"
+        [(ngModel)]="inputValue" (focus)="onTouch && onTouch()" (input)="onChange && onChange()"
+        [disabled]="isDisabled" />
+</label>

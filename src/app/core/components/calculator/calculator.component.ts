@@ -1,16 +1,20 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { InputComponent } from '@components/input';
 import { OPTIONS } from '@constants/options';
 import { Option } from '@interfaces/option.interface';
 
 @Component({
   selector: 'app-calculator',
   standalone: true,
-  imports: [],
+  imports: [InputComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss'
 })
-export class CalculatorComponent {
+export class CalculatorComponent implements OnInit {
+  private readonly fb = inject(NonNullableFormBuilder);
+
   @HostListener('document:click', ['$event'])
   trackClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
@@ -22,23 +26,34 @@ export class CalculatorComponent {
     event.stopPropagation();
   }
 
-  public showOption = false;
-  public readonly options = OPTIONS;
-  public selectedOption = this.options[1];
+  form = this.buildForm();
+  showOption = false;
+  readonly options = OPTIONS;
+  selectedOption = this.options[1];
 
-  public selectedNavigationItem = 2;
-  public readonly navigationTrackerItems = Array.from({ length: 8 });
+  selectedNavigationItem = 2;
+  readonly navigationTrackerItems = Array.from({ length: 8 });
+
+  ngOnInit(): void {
+    this.form.controls.yourMortgage.valueChanges.subscribe(console.log);
+  }
+
+  private buildForm() {
+    return this.fb.group({
+      yourMortgage: [null as number | null, Validators.required],
+    });
+  }
 
   // Simulates the navigation tracker
-  public onSelectedItem(index: number) {
+  onSelectedItem(index: number) {
     this.selectedNavigationItem = index;
   }
 
-  public toggleShowOption() {
+  toggleShowOption() {
     this.showOption = !this.showOption;
   }
 
-  public selectOption(option: Option) {
+  selectOption(option: Option) {
     if (option === this.selectedOption) {
       return;
     }

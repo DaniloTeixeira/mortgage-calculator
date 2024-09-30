@@ -11,21 +11,9 @@
                     <p class="header-text text-[24px] text-primary">Your Mortgage</p>
                     <h1 class="header-text text-[40px] text-primary">Calculate Your Mortgage</h1>
 
-                    <form>
+                    <form [formGroup]="form">
                         <div class="flex gap-4 xl:gap-9 flex-wrap">
-                            <label class="form-control w-full max-w-xs">
-                                <div class="flex gap-2 items-center mb-4">
-                                    <img src="svg/question-icon.svg" alt="White question mark on a gray background">
-                                    <span class="text-primary text-sm md:text-base">Your Mortgage</span>
-                                    <span class="text-secondary text-sm md:text-base">Required</span>
-                                </div>
-
-                                <div class="relative">
-                                    <img class="euro-icon" src="svg/euro-icon.svg" alt="Euro icon">
-                                </div>
-                                <input type="number" inputmode="numeric"
-                                    class="input input-primary w-full max-w-xs ps-10 text-lg" />
-                            </label>
+                            <app-input formControlName="yourMortgage" label="Your Mortgage" [required]="true" />
 
                             <label class="form-control w-full max-w-xs">
                                 <div class="flex gap-2 items-center mb-4">
