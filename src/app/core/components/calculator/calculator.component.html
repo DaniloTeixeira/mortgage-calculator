@@ -13,20 +13,16 @@
 
                     <form [formGroup]="form">
                         <div class="flex gap-4 xl:gap-9 flex-wrap">
-                            <app-input formControlName="yourMortgage" label="Your Mortgage" [required]="true" />
+                            <app-input formControlName="borrowingAmount" label="Borrowing Amount" [required]="true"
+                                iconLabel="svg/question-icon.svg"
+                                altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
+                                altIconInput="Euro icon" inputClass="euro-icon" />
 
-                            <label class="form-control w-full max-w-xs">
-                                <div class="flex gap-2 items-center mb-4">
-                                    <img src="svg/question-icon.svg" alt="White question mark on a gray background">
-                                    <span class="text-primary text-sm md:text-base">Purchase Price</span>
-                                    <span class="text-secondary text-sm md:text-base">Required</span>
-                                </div>
-                                <div class="relative">
-                                    <img class="euro-icon" src="svg/euro-icon.svg" alt="Euro icon">
-                                </div>
-                                <input type="number" inputmode="numeric"
-                                    class="input input-primary w-full max-w-xs ps-10 text-lg" />
-                            </label>
+                            <app-input formControlName="purchasePrice" label="Purchase Price" [required]="true"
+                                iconLabel="svg/question-icon.svg"
+                                altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
+                                altIconInput="Euro icon" inputClass="euro-icon" />
+
 
                             <label class="form-control w-full max-w-xs">
                                 <div class="flex gap-2 items-center mb-4">
@@ -42,7 +38,7 @@
 
 
                                     @if (!selectedOption) {
-                                    <span class="textsm md:text-base">Select</span>
+                                    <span class="text-sm md:text-base">Select</span>
                                     } @else {
                                     <span class="text-sm md:text-base">{{ selectedOption.value }}</span>
                                     }
@@ -73,34 +69,15 @@
                                 </div>
                             </label>
 
-                            <label class="form-control w-full max-w-xs">
-                                <div class="flex gap-2 items-center mb-4">
-                                    <img src="svg/question-icon.svg" alt="White question mark on a gray background">
-                                    <span class="text-primary text-sm md:text-base">
-                                        Gross Household Income
-                                    </span>
-                                    <span class="text-secondary text-sm md:text-base">Required</span>
-                                </div>
-                                <div class="relative">
-                                    <img class="euro-icon" src="svg/euro-icon.svg" alt="Euro icon">
-                                </div>
-                                <input type="number" inputmode="numeric"
-                                    class="input input-primary w-full max-w-xs ps-10 text-lg" />
-                            </label>
+                            <app-input formControlName="grossHouseholdIncome" label="Gross Household Income"
+                                [required]="true" iconLabel="svg/question-icon.svg"
+                                altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
+                                altIconInput="Euro icon" inputClass="euro-icon" />
 
-                            <label class="form-control w-full max-w-xs mr-auto">
-                                <div class="flex gap-2 items-center mb-4 relative">
-                                    <img src="svg/question-icon.svg" alt="White question mark on a gray background">
-                                    <span class="text-primary text-sm md:text-base">Interest Rate</span>
-                                    <span class="text-secondary text-sm md:text-base">Required</span>
-                                </div>
-                                <div class="relative">
-                                    <img class="absolute top-[21px] right-5" src="svg/percentage.svg"
-                                        alt="White question mark on a gray background">
-                                </div>
-                                <input type="number" inputmode="numeric"
-                                    class="input input-primary w-full max-w-xs pe-10 text-lg" />
-                            </label>
+                            <app-input formControlName="interestRate" label="Interest Rate" [required]="true"
+                                iconLabel="svg/question-icon.svg"
+                                altIconLabel="White question mark on a gray background" iconInput="svg/percentage.svg"
+                                altIconInput="Euro icon" inputClass="percentage-icon" />
                         </div>
                     </form>
                 </div>

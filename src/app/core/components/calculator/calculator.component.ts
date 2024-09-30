@@ -35,12 +35,16 @@ export class CalculatorComponent implements OnInit {
   readonly navigationTrackerItems = Array.from({ length: 8 });
 
   ngOnInit(): void {
-    this.form.controls.yourMortgage.valueChanges.subscribe(console.log);
+    console.log(this.form);
   }
 
   private buildForm() {
     return this.fb.group({
-      yourMortgage: [null as number | null, Validators.required],
+      borrowingAmount: [null as number | null, Validators.required],
+      purchasePrice: [null as number | null, Validators.required],
+      preferredRepaymentPeriod: ['', Validators.required],
+      grossHouseholdIncome: [null as number | null, Validators.required],
+      interestRate: [null as number | null, Validators.required],
     });
   }
 

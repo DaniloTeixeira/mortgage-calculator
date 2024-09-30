@@ -1,14 +1,13 @@
 <label class="w-full max-w-xs">
     <div class="flex gap-2 items-center mb-4">
-        <img src="svg/question-icon.svg" alt="White question mark on a gray background">
+        <img [src]="iconLabel()" [alt]="altIconLabel()">
         <span class="text-primary text-sm md:text-base">{{ label() }}</span>
         <span class="text-secondary text-sm md:text-base">{{ required() ? 'Required' : '' }}</span>
     </div>
 
     <div class="relative">
-        <img class="euro-icon" src="svg/euro-icon.svg" alt="Euro icon">
+        <img [class]="inputClass()" [src]="iconInput()" [alt]="altIconInput()">
     </div>
-    <input class="input input-primary w-full max-w-xs ps-10 text-lg" type="text" mask="separator.2"
-        thousandSeparator="," [(ngModel)]="inputValue" (focus)="onTouch && onTouch()" (input)="onChange && onChange()"
-        [disabled]="isDisabled" />
+    <input class="input input-primary w-full max-w-xs text-lg" [class.ps-10]="inputClass() === 'euro-icon'" type="text"
+        mask="separator.2" thousandSeparator="," [formControl]="control" (focus)="onTouch?.()" />
 </label>
