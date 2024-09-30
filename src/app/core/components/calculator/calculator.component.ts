@@ -3,9 +3,6 @@ import { Component, HostListener } from '@angular/core';
 import { OPTIONS } from '@constants/options';
 import { Option } from '@interfaces/option.interface';
 
-
-
-
 @Component({
   selector: 'app-calculator',
   standalone: true,
