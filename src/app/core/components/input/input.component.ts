@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NgControl } from '@angular/forms';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgxMaskDirective],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -18,8 +19,8 @@ export class InputComponent implements ControlValueAccessor {
   required = input(false);
   label = input.required<string | null>();
 
-  onTouch?: () => {};
-  onChange?: () => {};
+  onTouch?: () => void;
+  onChange?: () => void;
 
   constructor() {
     if (this.ngControl) {

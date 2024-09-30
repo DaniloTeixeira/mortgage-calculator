@@ -8,7 +8,7 @@
     <div class="relative">
         <img class="euro-icon" src="svg/euro-icon.svg" alt="Euro icon">
     </div>
-    <input type="number" inputmode="numeric" class="input input-primary w-full max-w-xs ps-10 text-lg"
-        [(ngModel)]="inputValue" (focus)="onTouch && onTouch()" (input)="onChange && onChange()"
+    <input class="input input-primary w-full max-w-xs ps-10 text-lg" type="text" mask="separator.2"
+        thousandSeparator="," [(ngModel)]="inputValue" (focus)="onTouch && onTouch()" (input)="onChange && onChange()"
         [disabled]="isDisabled" />
 </label>
