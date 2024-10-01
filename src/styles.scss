@@ -99,3 +99,16 @@ input::-webkit-inner-spin-button {
     top: 21px;
     right: 20px;
 }
+
+.card {
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0px 10px 16px 0px #000f3314;
+}
+
+.ellipsis {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

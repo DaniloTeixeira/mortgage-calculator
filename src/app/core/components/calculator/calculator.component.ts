@@ -7,10 +7,11 @@ import { InputComponent } from '@components/input';
 import { SelectComponent } from '@components/select';
 import { OPTIONS } from '@constants/options';
 import { MortgageService } from '../../services/mortgage.service';
+import { CardCalculationComponent } from "../card-calculation/card-calculation.component";
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
 
-const COMPONENTS = [InputComponent, SelectComponent];
+const COMPONENTS = [InputComponent, SelectComponent, CardCalculationComponent];
 
 @Component({
   selector: 'app-calculator',
