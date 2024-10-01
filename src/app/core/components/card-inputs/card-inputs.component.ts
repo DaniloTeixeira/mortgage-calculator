@@ -10,6 +10,7 @@ import { CardCalculationComponent } from '@components/card-calculation';
 import { InputComponent } from '@components/input';
 import { NavigationTrackerComponent } from '@components/navigation-tracker';
 import { SelectComponent } from '@components/select';
+import { timer } from 'rxjs';
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
 
@@ -24,17 +25,28 @@ const COMPONENTS = [InputComponent, SelectComponent, CardCalculationComponent, N
 })
 export class CardInputsComponent implements OnInit {
   private readonly fb = inject(NonNullableFormBuilder);
-  public readonly mortgageService = inject(MortgageService);
 
-  form = this.buildForm();
+  readonly mortgageService = inject(MortgageService);
 
+  readonly form = this.buildForm();
+
+  shouldBlurCaculationValues = true;
+
+  timer$ = timer(1500);
 
   ngOnInit(): void {
+    this.loadCalculation();
     this.formChangesListener();
   }
 
   private formChangesListener(): void {
-    this.form.valueChanges.subscribe(() => this.setMortgageValues());
+    this.form.valueChanges.subscribe((control) => {
+      this.setMortgageValues();
+
+      const blurValues = !control.borrowingAmount || !control.purchasePrice || !control.repaymentPeriod || !control.grossIncome || !control.interestRate;
+
+      this.shouldBlurCaculationValues = blurValues;
+    });
   }
 
   private setMortgageValues(): void {
@@ -52,6 +64,13 @@ export class CardInputsComponent implements OnInit {
       interestRate: [3.65, Validators.required],
     });
   }
+
+  private loadCalculation() {
+    this.timer$.subscribe(() => {
+      this.shouldBlurCaculationValues = false;
+    });
+  }
+
 
   setpreferredRepaymentPeriod(period: number) {
     this.form.controls.repaymentPeriod.setValue(period);

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxMaskDirective } from 'ngx-mask';
@@ -11,8 +11,10 @@ import { MortgageService } from '@services/mortgage';
   standalone: true,
   imports: [CommonModule, MatTooltipModule, NgxMaskDirective],
   templateUrl: './card-calculation.component.html',
-  styleUrl: './card-calculation.component.scss'
+  styleUrl: './card-calculation.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardCalculationComponent {
-  public mortgageService = inject(MortgageService);
+  readonly blurValue = input.required<boolean>();
+  readonly mortgageService = inject(MortgageService);
 }
