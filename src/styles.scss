@@ -6,6 +6,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+    font-family: "circular-medium";
+    src: url("./assets/fonts/circular-std-medium-500.ttf");
+}
+
 /* Global styles */
 html {
     background-color: #1e1e1e !important;
@@ -14,7 +19,7 @@ html {
 body {
     width: 100%;
     height: fit-content;
-    font-family: "Circular", sans-serif;
+    font-family: "circular-medium", sans-serif;
 
     @media (width < 768px) {
         height: 100vh;

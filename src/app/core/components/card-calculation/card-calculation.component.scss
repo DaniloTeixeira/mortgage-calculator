@@ -1,6 +1,6 @@
 .card__calculation {
     max-width: 456px;
-    height: 441px;
+    min-height: 441px;
     padding: 24px;
 
     &--info {
@@ -18,10 +18,6 @@
         @media (width <= 1124px) {
             flex-grow: 1;
         }
-    }
-
-    @media (width <= 1420px) {
-        padding: 15px;
     }
 
     @media (width < 576px) {

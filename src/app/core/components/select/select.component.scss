@@ -1,9 +1,5 @@
 @import "src/assets/styles/scss/_variables.scss";
 
-:host {
-    width: 320px;
-}
-
 .custom-select {
     position: relative;
     height: 52px;
@@ -14,6 +10,10 @@
     color: $text-primary;
     text-align: start;
     z-index: 1;
+
+    @media (width >= 422px) {
+        width: 350px;
+    }
 
     &__options {
         display: flex;

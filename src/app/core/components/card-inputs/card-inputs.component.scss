@@ -1,10 +1,9 @@
 .card__inputs {
     max-width: 816px;
     min-height: 812px;
-    padding: 60px;
+    padding: 40px;
 
-    @media (width < 992px) {
-        padding: 30px;
+    @media (width < 992px) and (width > 576px) {
         min-height: fit-content;
     }
 

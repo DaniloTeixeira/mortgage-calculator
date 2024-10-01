@@ -1,5 +1,5 @@
-<div class="flex flex-col lg:flex-row justify-between gap-5 xl:gap-10">
-    <div class="flex items-center flex-col lg:flex-row gap-10">
+<div class="flex flex-col xl:flex-row justify-between gap-5 xl:gap-10">
+    <div class="flex items-center flex-col xl:flex-row gap-10">
         <article class="card card__inputs">
             <div>
                 <div class="pb-10">
@@ -12,26 +12,26 @@
                     <h1 class="header-text text-[40px] text-primary">Calculate Your Mortgage</h1>
 
                     <form [formGroup]="form">
-                        <div class="flex gap-4 xl:gap-9 flex-wrap">
-                            <app-input formControlName="borrowingAmount" label="Borrowing Amount" [required]="true"
-                                iconLabel="svg/question-icon.svg"
+                        <div class="flex md:gap-9 flex-wrap">
+                            <app-input class="grow md:grow-0" formControlName="borrowingAmount" label="Borrowing Amount"
+                                [required]="true" iconLabel="svg/question-icon.svg"
                                 altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
                                 altIconInput="Euro icon" inputClass="euro-icon" />
 
-                            <app-input formControlName="purchasePrice" label="Purchase Price" [required]="true"
-                                iconLabel="svg/question-icon.svg"
+                            <app-input class="grow md:grow-0" formControlName="purchasePrice" label="Purchase Price"
+                                [required]="true" iconLabel="svg/question-icon.svg"
                                 altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
                                 altIconInput="Euro icon" inputClass="euro-icon" />
 
-                            <app-select (optionChosen)="setpreferredRepaymentPeriod($event)" />
+                            <app-select class="grow md:grow-0" (optionChosen)="setpreferredRepaymentPeriod($event)" />
 
-                            <app-input formControlName="grossIncome" label="Gross Household Income" [required]="true"
-                                iconLabel="svg/question-icon.svg"
+                            <app-input class="grow md:grow-0" formControlName="grossIncome"
+                                label="Gross Household Income" [required]="true" iconLabel="svg/question-icon.svg"
                                 altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
                                 altIconInput="Euro icon" inputClass="euro-icon" />
 
-                            <app-input formControlName="interestRate" label="Interest Rate" [required]="true"
-                                iconLabel="svg/question-icon.svg"
+                            <app-input class="grow md:grow-0" formControlName="interestRate" label="Interest Rate"
+                                [required]="true" iconLabel="svg/question-icon.svg"
                                 altIconLabel="White question mark on a gray background" iconInput="svg/percentage.svg"
                                 altIconInput="Euro icon" inputClass="percentage-icon" />
                         </div>
@@ -45,7 +45,7 @@
         </aside>
     </div>
 
-    <aside>
+    <aside class="order-first xl:order-1">
         <app-navigation-tracker />
     </aside>
 </div>
