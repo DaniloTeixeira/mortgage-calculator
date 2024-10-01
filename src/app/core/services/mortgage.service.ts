@@ -1,15 +1,16 @@
 import { Injectable, computed, signal } from '@angular/core';
+import { Mortgage } from '@interfaces/mortgage.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MortgageService {
   // Valores iniciais (Signals reativos)
-  private interestRate = signal(3.65); // % ao ano
-  private grossIncome = signal(225000); // Renda bruta anual
-  private repaymentPeriod = signal(30); // Anos
-  private purchasePrice = signal(910000); // Preço da compra
   private borrowingAmount = signal(826800); // Valor do empréstimo
+  private purchasePrice = signal(910000); // Preço da compra
+  private repaymentPeriod = signal(30); // Anos
+  private grossIncome = signal(225000); // Renda bruta anual
+  private interestRate = signal(3.65); // % ao ano
 
   // Cálculos dinâmicos usando `computed` para reatividade
   readonly termYears = computed(() => this.repaymentPeriod());
@@ -24,7 +25,6 @@ export class MortgageService {
     const numberOfPayments = this.repaymentPeriod() * 12; // Número total de pagamentos (meses)
 
     if (interestRate === 0) {
-      console.log('entrou no if');
       return principal / numberOfPayments;
     }
 
@@ -48,6 +48,16 @@ export class MortgageService {
     const loanAmount = this.borrowingAmount(); // Valor do empréstimo
     const purchasePrice = this.purchasePrice(); // Preço de compra
 
-    return loanAmount && purchasePrice ? (loanAmount / purchasePrice) * 100 : 0;
+    return loanAmount && purchasePrice ? (loanAmount / purchasePrice) : 0;
+  }
+
+  setValues(mortgage: Mortgage) {
+    this.borrowingAmount.set(mortgage.borrowingAmount);
+    this.purchasePrice.set(mortgage.purchasePrice);
+    this.repaymentPeriod.set(mortgage.repaymentPeriod);
+    this.grossIncome.set(mortgage.grossIncome);
+    this.interestRate.set(mortgage.interestRate);
+
+    console.log(this.termYears());
   }
 }

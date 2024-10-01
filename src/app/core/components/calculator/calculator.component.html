@@ -25,8 +25,8 @@
 
                             <app-select (optionChosen)="setpreferredRepaymentPeriod($event)" />
 
-                            <app-input formControlName="grossHouseholdIncome" label="Gross Household Income"
-                                [required]="true" iconLabel="svg/question-icon.svg"
+                            <app-input formControlName="grossIncome" label="Gross Household Income" [required]="true"
+                                iconLabel="svg/question-icon.svg"
                                 altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
                                 altIconInput="Euro icon" inputClass="euro-icon" />
 
@@ -46,24 +46,32 @@
             <div class="flex flex-col gap-2 md:gap-5 mt-1 md:mt-4">
                 <p class="header-text text-[16px] font-semibold text-primary">Your Mortgage Calculation</p>
 
-                <div class="flex gap-3 items-baseline">
-                    <span class="font-semibold text-[40px] text-primary ">€4,213</span>
-                    <span class="text-primary text-lg">Per Month</span>
+                <div class="flex gap-3 items-baseline max-w-[408px]">
+                    <p class="font-semibold text-[40px] text-primary ellipsis">
+                        {{ mortgageService.monthlyPayment() | currency : 'EUR' }}
+                        <span class="text-primary text-lg font-normal">Per Month</span>
+                    </p>
+
                 </div>
 
                 <div class="flex gap-4 flex-wrap">
-                    <div class="card__aside--info primary-color">
-                        <p class="font-semibold text-2xl ">4.5x</p>
+                    <div class="card__aside--info primary-color"
+                        [matTooltip]="mortgageService.debtToIncome().toString() + 'x'" matTooltipPosition="below">
+                        <p class="font-semibold text-2xl ellipsis">{{ mortgageService.debtToIncome()}}x
+                        </p>
                         <p class="text-xs">Debt To Income</p>
                     </div>
 
-                    <div class="card__aside--info primary-color">
-                        <p class="font-semibold text-2xl ">89.9%</p>
+                    <div class="card__aside--info primary-color"
+                        [matTooltip]="mortgageService.loanToValue().toString() + 'x'" matTooltipPosition="below">
+                        <p class="font-semibold text-2xl ellipsis">
+                            {{ (mortgageService.loanToValue()) | percent : '1.2'}}
+                        </p>
                         <p class="text-xs">Loan To Value</p>
                     </div>
 
                     <div class="card__aside--info primary-color">
-                        <p class="font-semibold text-2xl ">30</p>
+                        <p class="font-semibold text-2xl">{{ mortgageService.termYears() }}</p>
                         <p class="text-xs">Term (Years)</p>
                     </div>
                 </div>

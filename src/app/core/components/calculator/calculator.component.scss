@@ -100,3 +100,10 @@
 .hide-info {
     filter: blur(20px);
 }
+
+.ellipsis {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -25,7 +25,7 @@ export class SelectComponent {
     event.stopPropagation();
   }
 
-  optionChosen = output<string>();
+  optionChosen = output<number>();
 
   readonly options = OPTIONS;
   showOption = false;

@@ -4,26 +4,31 @@ export const OPTIONS: Option[] = [
     {
         id: 35,
         selected: false,
-        value: '35 Years'
+        name: '35 Years',
+        value: 35
     },
     {
         id: 30,
         selected: false,
-        value: '30 Years'
+        name: '30 Years',
+        value: 30
     },
     {
         id: 25,
         selected: false,
-        value: '25 Years'
+        name: '25 Years',
+        value: 25
     },
     {
         id: 20,
         selected: false,
-        value: '20 Years'
+        name: '20 Years',
+        value: 20
     },
     {
         id: 15,
         selected: false,
-        value: '15 Years'
+        name: '15 Years',
+        value: 15
     },
 ];

@@ -1,5 +1,6 @@
 export interface Option {
     id: number,
     selected: boolean,
-    value: string;
+    name: string,
+    value: number;
 }
