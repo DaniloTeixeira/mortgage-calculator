@@ -12,36 +12,35 @@ import { NgxMaskDirective } from 'ngx-mask';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent implements ControlValueAccessor {
-  private readonly ngControl = inject(NgControl, { optional: true });
+  private readonly ngControl = inject(NgControl);
 
-  required = input(false);
+  controlInput = new FormControl<number | null>(null);
+
   iconInput = input('');
-  altIconLabel = input.required<string>();
-  label = input.required<string | null>();
-  iconLabel = input.required<string>();
-  altIconInput = input.required<string>();
   inputClass = input('');
-  control = new FormControl<number | null>(null);
+  required = input(false);
+
+  iconLabel = input.required<string>();
+  altIconLabel = input.required<string>();
+  altIconInput = input.required<string>();
+  label = input.required<string | null>();
 
   onTouch?: () => void;
-  onChange?: (_: number) => void;
+  onChange?: (_: number | null) => void;
 
   constructor() {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor = this;
-    }
-
+    this.ngControl.valueAccessor = this;
     this.registerChanges();
   }
 
   private registerChanges(): void {
-    this.control.valueChanges.subscribe((value) => {
-      this.onChange?.(value as number);
+    this.controlInput.valueChanges.subscribe((value) => {
+      this.onChange?.(value);
     });
   }
 
   writeValue(value: number): void {
-    this.control.setValue(value);
+    this.controlInput.setValue(value);
   }
 
   registerOnChange(fn: (() => void)): void {
