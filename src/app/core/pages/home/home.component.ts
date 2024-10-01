@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { CalculatorComponent } from '@components/calculator';
+import { CardInputsComponent } from '@components/card-inputs/card-inputs.component';
 import { FooterComponent } from '@components/footer';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CalculatorComponent, FooterComponent],
+  imports: [CardInputsComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

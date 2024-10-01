@@ -6,7 +6,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { InputComponent } from '@components/input';
 import { SelectComponent } from '@components/select';
 import { OPTIONS } from '@constants/options';
-import { MortgageService } from '../../services/mortgage.service';
+import { MortgageService } from '../../services/mortgage/mortgage.service';
 import { CardCalculationComponent } from "../card-calculation/card-calculation.component";
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
@@ -14,13 +14,13 @@ const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModul
 const COMPONENTS = [InputComponent, SelectComponent, CardCalculationComponent];
 
 @Component({
-  selector: 'app-calculator',
+  selector: 'app-card-inputs',
   standalone: true,
   imports: [...MODULES, ...COMPONENTS],
-  templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.scss'
+  templateUrl: './card-inputs.component.html',
+  styleUrl: './card-inputs.component.scss'
 })
-export class CalculatorComponent implements OnInit {
+export class CardInputsComponent implements OnInit {
   private readonly fb = inject(NonNullableFormBuilder);
   public readonly mortgageService = inject(MortgageService);
 

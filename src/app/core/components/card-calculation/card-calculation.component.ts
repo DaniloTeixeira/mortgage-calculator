@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxMaskDirective } from 'ngx-mask';
-import { MortgageService } from '../../services/mortgage.service';
+
+import { MortgageService } from '@services/mortgage';
 
 @Component({
   selector: 'app-card-calculation',
