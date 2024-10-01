@@ -1,51 +1,57 @@
-<div class="flex flex-col xl:flex-row justify-between gap-5 xl:gap-10">
-    <div class="flex items-center flex-col xl:flex-row gap-10">
-        <article class="card card__inputs">
-            <div>
-                <div class="pb-10">
-                    <img src="svg/logo-card-header.svg" alt="Outline of a house in blue">
-
-                </div>
-
-                <div class="flex flex-col gap-8">
-                    <p class="header-text text-[24px] text-primary">Your Mortgage</p>
-                    <h1 class="header-text text-[40px] text-primary">Calculate Your Mortgage</h1>
-
-                    <form [formGroup]="form">
-                        <div class="flex md:gap-9 flex-wrap">
-                            <app-input class="grow md:grow-0" formControlName="borrowingAmount" label="Borrowing Amount"
-                                [required]="true" iconLabel="svg/question-icon.svg"
-                                altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
-                                altIconInput="Euro icon" inputClass="euro-icon" />
-
-                            <app-input class="grow md:grow-0" formControlName="purchasePrice" label="Purchase Price"
-                                [required]="true" iconLabel="svg/question-icon.svg"
-                                altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
-                                altIconInput="Euro icon" inputClass="euro-icon" />
-
-                            <app-select class="grow md:grow-0" (optionChosen)="setpreferredRepaymentPeriod($event)" />
-
-                            <app-input class="grow md:grow-0" formControlName="grossIncome"
-                                label="Gross Household Income" [required]="true" iconLabel="svg/question-icon.svg"
-                                altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
-                                altIconInput="Euro icon" inputClass="euro-icon" />
-
-                            <app-input class="grow md:grow-0" formControlName="interestRate" label="Interest Rate"
-                                [required]="true" iconLabel="svg/question-icon.svg"
-                                altIconLabel="White question mark on a gray background" iconInput="svg/percentage.svg"
-                                altIconInput="Euro icon" inputClass="percentage-icon" />
-                        </div>
-                    </form>
-                </div>
+<div class="flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10">
+    <article class="card card__inputs flex flex-col justify-between">
+        <div>
+            <div class="pb-10">
+                <img src="svg/logo-card-header.svg" alt="Outline of a house in blue">
             </div>
-        </article>
 
-        <aside>
-            <app-card-calculation [blurValue]="shouldBlurCaculationValues" />
-        </aside>
-    </div>
+            <div class="flex flex-col gap-8">
+                <p class="header-text text-[24px] text-primary">Your Mortgage</p>
+                <h1 class="header-text text-[40px] text-primary">Calculate Your Mortgage</h1>
+
+                <form [formGroup]="form">
+                    <div class="flex md:gap-9 flex-wrap">
+                        <app-input class="grow md:grow-0" formControlName="borrowingAmount" label="Borrowing Amount"
+                            [required]="true" iconLabel="svg/question-icon.svg"
+                            altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
+                            altIconInput="Euro icon" inputClass="euro-icon" />
+
+                        <app-input class="grow md:grow-0" formControlName="purchasePrice" label="Purchase Price"
+                            [required]="true" iconLabel="svg/question-icon.svg"
+                            altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
+                            altIconInput="Euro icon" inputClass="euro-icon" />
+
+                        <app-select class="grow md:grow-0" (optionChosen)="setpreferredRepaymentPeriod($event)" />
+
+                        <app-input class="grow md:grow-0" formControlName="grossIncome" label="Gross Household Income"
+                            [required]="true" iconLabel="svg/question-icon.svg"
+                            altIconLabel="White question mark on a gray background" iconInput="svg/euro-icon.svg"
+                            altIconInput="Euro icon" inputClass="euro-icon" />
+
+                        <app-input class="grow md:grow-0" formControlName="interestRate" label="Interest Rate"
+                            [required]="true" iconLabel="svg/question-icon.svg"
+                            altIconLabel="White question mark on a gray background" iconInput="svg/percentage.svg"
+                            altIconInput="Euro icon" inputClass="percentage-icon" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        @if (form.invalid) {
+        <div class="flex items-center justify-end mt-5">
+            <span class="text-red-500">
+                &#42; Please fill in all required fields
+            </span>
+        </div>
+        }
+    </article>
+
+    <aside>
+        <app-card-calculation [blurValue]="shouldBlurCaculationValues" />
+    </aside>
 
     <aside class="order-first xl:order-1">
         <app-navigation-tracker />
     </aside>
+
 </div>

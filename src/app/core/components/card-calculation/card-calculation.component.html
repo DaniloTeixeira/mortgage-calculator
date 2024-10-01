@@ -24,7 +24,7 @@
                 <app-loader class="primary-blue" />
                 } @else {
                 <p [class.blur-sm]="blurValue()" class="font-semibold text-2xl -mt-1 ellipsis">
-                    {{ mortgageService.debtToIncome()}}x
+                    {{ mortgageService.debtToIncome() * 10 | number : '1.1-2' }}x
                 </p>
                 }
                 <p class="text-xs -mb-1">Debt To Income</p>

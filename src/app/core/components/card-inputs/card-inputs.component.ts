@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -10,6 +10,7 @@ import { CardCalculationComponent } from '@components/card-calculation';
 import { InputComponent } from '@components/input';
 import { NavigationTrackerComponent } from '@components/navigation-tracker';
 import { SelectComponent } from '@components/select';
+import { Mortgage } from '@interfaces/mortgage.interface';
 import { LoaderService } from '@services/loader';
 import { delay, tap, timer } from 'rxjs';
 
@@ -25,7 +26,7 @@ const COMPONENTS = [InputComponent, SelectComponent, CardCalculationComponent, N
   styleUrl: './card-inputs.component.scss'
 })
 export class CardInputsComponent implements OnInit {
-  private readonly fb = inject(NonNullableFormBuilder);
+  private readonly fb = inject(FormBuilder);
   private readonly loaderService = inject(LoaderService);
 
   readonly mortgageService = inject(MortgageService);
@@ -33,8 +34,9 @@ export class CardInputsComponent implements OnInit {
   readonly form = this.buildForm();
 
   shouldBlurCaculationValues = true;
+  selectedOption: string | null = null;
 
-  timer$ = timer(1500);
+  timer$ = timer(1000);
 
   ngOnInit(): void {
     this.loadCalculation();
@@ -45,7 +47,7 @@ export class CardInputsComponent implements OnInit {
 
     this.form.valueChanges.pipe(
       tap(() => this.loaderService.setIsLoading(true)),
-      delay(2000)
+      delay(1000)
     ).subscribe((control) => {
       this.setMortgageValues();
 
@@ -60,7 +62,7 @@ export class CardInputsComponent implements OnInit {
   private setMortgageValues(): void {
     const formValue = this.form.getRawValue();
 
-    this.mortgageService.setValues(formValue);
+    this.mortgageService.setValues(formValue as Mortgage);
   }
 
   private buildForm() {
@@ -78,7 +80,6 @@ export class CardInputsComponent implements OnInit {
       this.shouldBlurCaculationValues = false;
     });
   }
-
 
   setpreferredRepaymentPeriod(period: number) {
     this.form.controls.repaymentPeriod.setValue(period);

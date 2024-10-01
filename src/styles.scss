@@ -13,7 +13,6 @@
 
 /* Global styles */
 html {
-    height: 100%;
     background-color: #1e1e1e !important;
 }
 
@@ -23,12 +22,11 @@ body {
     align-items: center;
 
     width: 100%;
-    height: 100% !important;
     height: fit-content;
     font-family: "circular-medium", sans-serif;
 
     @media (width < 768px) {
-        height: 100vh;
+        width: 100vw;
         margin: 0;
     }
 }
@@ -138,7 +136,7 @@ input::-webkit-inner-spin-button {
         position: absolute;
         inset: 0;
         margin: auto;
-        width: 8rem;
+        width: 5rem;
         color: $primary-blue;
     }
 }
