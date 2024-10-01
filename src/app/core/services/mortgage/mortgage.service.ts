@@ -57,7 +57,5 @@ export class MortgageService {
     this.repaymentPeriod.set(mortgage.repaymentPeriod);
     this.grossIncome.set(mortgage.grossIncome);
     this.interestRate.set(mortgage.interestRate);
-
-    console.log(this.termYears());
   }
 }

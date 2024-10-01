@@ -4,35 +4,52 @@
     <div class="flex flex-col gap-2 md:gap-5 mt-1 md:mt-4">
         <p class="header-text text-[16px] font-semibold text-primary text-start">Your Mortgage Calculation</p>
 
-        <div class="flex gap-3 items-baseline font-semibold max-w-[408px] text-[40px] text-primary ellipsis">
+        <div class="relative flex gap-3 items-baseline font-semibold max-w-[408px] text-[40px] text-primary ellipsis">
+
+            @if (isLoading()) {
+            <app-loader class="w-full text-primary" />
+            } @else {
             <p [class.blur]="blurValue()">
                 {{ (mortgageService.monthlyPayment() || 0) | currency : 'EUR' }}
             </p>
             <p class="text-primary text-lg font-normal">Per Month</p>
+            }
         </div>
 
 
         <div class="flex gap-4 flex-wrap">
-            <div class="card__calculation--info primary-color"
+            <div class="card__calculation--info primary-blue"
                 [matTooltip]="mortgageService.debtToIncome().toString() + ' x'" matTooltipPosition="below">
+                @if (isLoading()) {
+                <app-loader class="primary-blue" />
+                } @else {
                 <p [class.blur-sm]="blurValue()" class="font-semibold text-2xl -mt-1 ellipsis">
                     {{ mortgageService.debtToIncome()}}x
                 </p>
+                }
                 <p class="text-xs -mb-1">Debt To Income</p>
             </div>
 
-            <div class="card__calculation--info primary-color"
+            <div class="card__calculation--info primary-blue"
                 [matTooltip]="(mortgageService.loanToValue() * 100).toString() + ' %'" matTooltipPosition="below">
+                @if (isLoading()) {
+                <app-loader class="primary-blue" />
+                } @else {
                 <p [class.blur-sm]="blurValue()" [class.blur] class="font-semibold text-2xl -mt-1 ellipsis">
                     {{ (mortgageService.loanToValue()) | percent : '1.2'}}
                 </p>
+                }
                 <p class="text-xs -mb-1">Loan To Value</p>
             </div>
 
-            <div class="card__calculation--info primary-color">
+            <div class="card__calculation--info primary-blue">
+                @if (isLoading()) {
+                <app-loader class="primary-blue" />
+                } @else {
                 <p [class.blur-sm]="blurValue()" class="font-semibold text-2xl">
                     {{ mortgageService.termYears() }}
                 </p>
+                }
                 <p class="text-xs">Term (Years)</p>
             </div>
         </div>

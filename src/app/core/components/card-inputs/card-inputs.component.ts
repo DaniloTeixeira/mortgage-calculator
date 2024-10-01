@@ -10,7 +10,8 @@ import { CardCalculationComponent } from '@components/card-calculation';
 import { InputComponent } from '@components/input';
 import { NavigationTrackerComponent } from '@components/navigation-tracker';
 import { SelectComponent } from '@components/select';
-import { timer } from 'rxjs';
+import { LoaderService } from '@services/loader';
+import { delay, tap, timer } from 'rxjs';
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
 
@@ -25,6 +26,7 @@ const COMPONENTS = [InputComponent, SelectComponent, CardCalculationComponent, N
 })
 export class CardInputsComponent implements OnInit {
   private readonly fb = inject(NonNullableFormBuilder);
+  private readonly loaderService = inject(LoaderService);
 
   readonly mortgageService = inject(MortgageService);
 
@@ -40,12 +42,18 @@ export class CardInputsComponent implements OnInit {
   }
 
   private formChangesListener(): void {
-    this.form.valueChanges.subscribe((control) => {
+
+    this.form.valueChanges.pipe(
+      tap(() => this.loaderService.setIsLoading(true)),
+      delay(1500)
+    ).subscribe((control) => {
       this.setMortgageValues();
 
       const blurValues = !control.borrowingAmount || !control.purchasePrice || !control.repaymentPeriod || !control.grossIncome || !control.interestRate;
 
       this.shouldBlurCaculationValues = blurValues;
+
+      this.loaderService.setIsLoading(false);
     });
   }
 
