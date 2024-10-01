@@ -45,7 +45,7 @@ export class CardInputsComponent implements OnInit {
 
     this.form.valueChanges.pipe(
       tap(() => this.loaderService.setIsLoading(true)),
-      delay(1500)
+      delay(2000)
     ).subscribe((control) => {
       this.setMortgageValues();
 

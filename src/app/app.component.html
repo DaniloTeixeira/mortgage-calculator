@@ -1,4 +1,8 @@
 <main class="bg-image">
     <router-outlet />
-
 </main>
+
+
+@if (loadingApp) {
+<app-loader [initialLoader]="true" />
+}
