@@ -1,0 +1,16 @@
+<div class="flex flex-col items-center gap-5 pt-5 md:p-0 md:gap-10 order-first lg:order-1">
+    <button class="btn btn-circle btn-primary">
+        <svg class="h-5 w-5 text-blue-100" xmlns=" http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <div class="nav-tracker">
+        @for (item of navigationTrackerItems; track $index) {
+        <div class="nav-tracker__item nav-tracker__item--{{ $index === selectedNavigationItem ? 'active' : 'inactive' }}"
+            (click)="onSelectedItem($index)">
+        </div>
+        }
+    </div>
+</div>

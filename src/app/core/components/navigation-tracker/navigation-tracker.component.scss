@@ -1,0 +1,46 @@
+.nav-tracker {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+
+    width: 24px;
+    height: 580px;
+    padding: 8px;
+
+    @media (width <= 1024px) {
+        flex-grow: 0;
+        gap: 15px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+    }
+
+    &__item {
+        width: 8px;
+        height: 60px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        @media (width <= 1024px) {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.nav-tracker__item--active {
+    background-color: #194dfa;
+}
+
+.nav-tracker__item--inactive {
+    background-color: #194dfa;
+    opacity: 25%;
+}
