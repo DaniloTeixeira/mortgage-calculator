@@ -21,7 +21,7 @@ To view the test coverage in the browser:
 2. Right-click on the file and select "Open with Live Server."
 
 #### Unit Tests Result
-![EVIDENCE]('./src/assets/images/unit-tests-result.jpg') 
+You can view the unit tests results on the following path: `src/assets/images/unit-tests-result.jpg` 
 
 ## 4. Design in Figma
 You can view the design specifications on Figma [here](https://www.figma.com/design/5w8L063gBSy1OaxTQ8x3AL/Design-Challenges?node-id=4274-364).
