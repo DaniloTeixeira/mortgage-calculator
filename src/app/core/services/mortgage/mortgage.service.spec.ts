@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { Mortgage } from '../../interfaces/mortgage.interface';
-import { MortgageService } from './mortgage.service'; // ajuste o caminho conforme necessário
+import { Mortgage } from 'src/app/core/interfaces/mortgage.interface';
+
+import { MortgageService } from 'src/app/core/services/mortgage';
 
 describe('MortgageService', () => {
   let service: MortgageService;

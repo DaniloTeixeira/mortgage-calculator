@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { LoaderService } from './loader.service'; // ajuste o caminho conforme necessário
+
+import { LoaderService } from 'src/app/core/services/loader';
 
 describe('LoaderService', () => {
   let service: LoaderService;

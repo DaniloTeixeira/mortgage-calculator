@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { provideEnvironmentNgxMask } from 'ngx-mask';
-import { CardInputsComponent } from '../../components/card-inputs';
-import { FooterComponent } from '../../components/footer';
-import { HomeComponent } from './home.component';
+
+import { CardInputsComponent } from 'src/app/core/components/card-inputs';
+import { FooterComponent } from 'src/app/core/components/footer';
+import { HomeComponent } from 'src/app/core/pages/home';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

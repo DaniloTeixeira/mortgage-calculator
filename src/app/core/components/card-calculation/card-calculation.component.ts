@@ -3,9 +3,9 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxMaskDirective } from 'ngx-mask';
-import { LoaderService } from '../../services/loader';
-import { MortgageService } from '../../services/mortgage';
-import { LoaderComponent } from '../loader';
+import { LoaderComponent } from 'src/app/core/components/loader';
+import { LoaderService } from 'src/app/core/services/loader';
+import { MortgageService } from 'src/app/core/services/mortgage';
 
 @Component({
   selector: 'app-card-calculation',

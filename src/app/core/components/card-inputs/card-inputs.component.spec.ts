@@ -1,10 +1,12 @@
 import { NO_ERRORS_SCHEMA, signal } from '@angular/core';
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
+
 import { provideEnvironmentNgxMask } from 'ngx-mask';
-import { LoaderService } from '../../services/loader';
-import { MortgageService } from '../../services/mortgage';
-import { CardInputsComponent } from './card-inputs.component';
+
+import { CardInputsComponent } from 'src/app/core/components/card-inputs';
+import { LoaderService } from 'src/app/core/services/loader';
+import { MortgageService } from 'src/app/core/services/mortgage';
 
 describe('CardInputsComponent', () => {
   let component: CardInputsComponent;

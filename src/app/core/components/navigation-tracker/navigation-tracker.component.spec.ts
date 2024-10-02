@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { NavigationTrackerComponent } from './navigation-tracker.component';
+
+import { NavigationTrackerComponent } from 'src/app/core/components/navigation-tracker';
 
 describe('NavigationTrackerComponent', () => {
   let component: NavigationTrackerComponent;

@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoaderComponent } from './core/components/loader/loader.component';
-import { NavigationTrackerComponent } from './core/components/navigation-tracker/navigation-tracker.component';
+
+import { AppComponent } from 'src/app/app.component';
+import { LoaderComponent } from 'src/app/core/components/loader';
+import { NavigationTrackerComponent } from 'src/app/core/components/navigation-tracker';
 
 describe('AppComponent', () => {
   let component: AppComponent;
