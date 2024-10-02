@@ -148,7 +148,7 @@ describe('CardInputsComponent', () => {
   it('should set shouldBlurCaculationValues to false after the timer completes', (done) => {
     component['loadCalculation']();
 
-    jest.advanceTimersByTime(1000);
+    jest.advanceTimersByTime(1500);
 
     expect(component.shouldBlurCaculationValues).toBe(false);
     done();

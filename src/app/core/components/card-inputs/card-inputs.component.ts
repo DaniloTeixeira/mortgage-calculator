@@ -33,7 +33,7 @@ export class CardInputsComponent implements OnInit {
 
   public shouldBlurCaculationValues = true;
   public selectedOption: string | null = null;
-  public timer$ = timer(1000);
+  public timer$ = timer(1500);
 
   ngOnInit(): void {
     this.loadCalculation();
@@ -55,12 +55,8 @@ export class CardInputsComponent implements OnInit {
       }),
       tap(() => this.loaderService.setIsLoading(true)),
       delay(1000)
-    ).subscribe((control) => {
+    ).subscribe(() => {
       this.setMortgageValues();
-
-      const blurValues = !(control.borrowingAmount && control.purchasePrice && control.repaymentPeriod && control.grossIncome && control.interestRate);
-
-      this.shouldBlurCaculationValues = blurValues;
 
       this.loaderService.setIsLoading(false);
     });
