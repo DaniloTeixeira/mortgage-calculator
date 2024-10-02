@@ -4,15 +4,14 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { MortgageService } from '@services/mortgage';
-
-import { CardCalculationComponent } from '@components/card-calculation';
-import { InputComponent } from '@components/input';
-import { NavigationTrackerComponent } from '@components/navigation-tracker';
-import { SelectComponent } from '@components/select';
-import { Mortgage } from '@interfaces/mortgage.interface';
-import { LoaderService } from '@services/loader';
 import { debounceTime, delay, distinctUntilChanged, filter, tap, timer } from 'rxjs';
+import { Mortgage } from '../../interfaces/mortgage.interface';
+import { LoaderService } from '../../services/loader';
+import { MortgageService } from '../../services/mortgage';
+import { CardCalculationComponent } from '../card-calculation';
+import { InputComponent } from '../input';
+import { NavigationTrackerComponent } from '../navigation-tracker';
+import { SelectComponent } from '../select';
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
 

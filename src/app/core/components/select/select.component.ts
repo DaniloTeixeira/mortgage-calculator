@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, HostListener, output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { OPTIONS } from '@constants/options';
-import { Option } from '@interfaces/option.interface';
+import { OPTIONS } from '../../constants/options';
+import { Option } from '../../interfaces/option.interface';
 
 @Component({
   selector: 'app-select',
