@@ -27,7 +27,7 @@ export class SelectComponent {
 
   optionChosen = output<number>();
 
-  readonly options = OPTIONS;
+  options = OPTIONS;
   showOption = false;
   selectedOption = this.options[1];
 
