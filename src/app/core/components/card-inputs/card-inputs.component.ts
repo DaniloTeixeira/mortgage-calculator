@@ -12,7 +12,7 @@ import { NavigationTrackerComponent } from '@components/navigation-tracker';
 import { SelectComponent } from '@components/select';
 import { Mortgage } from '@interfaces/mortgage.interface';
 import { LoaderService } from '@services/loader';
-import { delay, tap, timer } from 'rxjs';
+import { debounceTime, delay, distinctUntilChanged, filter, tap, timer } from 'rxjs';
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
 
@@ -44,14 +44,24 @@ export class CardInputsComponent implements OnInit {
   }
 
   private formChangesListener(): void {
-
     this.form.valueChanges.pipe(
+      filter(() => this.form.valid),
+      debounceTime(500),
+      distinctUntilChanged((prev, curr) => {
+        return (
+          prev.borrowingAmount === curr.borrowingAmount &&
+          prev.purchasePrice === curr.purchasePrice &&
+          prev.repaymentPeriod === curr.repaymentPeriod &&
+          prev.grossIncome === curr.grossIncome &&
+          prev.interestRate === curr.interestRate
+        );
+      }),
       tap(() => this.loaderService.setIsLoading(true)),
       delay(1000)
     ).subscribe((control) => {
       this.setMortgageValues();
 
-      const blurValues = !control.borrowingAmount || !control.purchasePrice || !control.repaymentPeriod || !control.grossIncome || !control.interestRate;
+      const blurValues = !(control.borrowingAmount && control.purchasePrice && control.repaymentPeriod && control.grossIncome && control.interestRate);
 
       this.shouldBlurCaculationValues = blurValues;
 
