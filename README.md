@@ -14,7 +14,7 @@ Command: `git clone https://github.com/DaniloTeixeira/mortgage-calculator`
 This will automatically open the app in your default browser at http://localhost:4200.
 
 ## Run Unit Tests
-### Run npm run test in the terminal.
+### Run `npm run test` in the terminal.
 
 To view the test coverage in the browser:
 1. After running the tests, navigate to the coverage > icov-report > index.html file.
