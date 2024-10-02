@@ -9,5 +9,6 @@
         <img [class]="inputClass()" [src]="iconInput()" [alt]="altIconInput()">
     </div>
     <input class="input input-primary w-full text-lg" [class.ps-10]="inputClass() === 'euro-icon'" type="text"
-        mask="separator.2" thousandSeparator="," [formControl]="controlInput" (focus)="onTouch?.()" />
+        inputmode="numeric" mask="separator.2" thousandSeparator="," [formControl]="controlInput"
+        (focus)="onTouch?.()" />
 </label>
