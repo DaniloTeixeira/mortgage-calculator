@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { timer } from 'rxjs';
 import { LoaderComponent } from "./core/components/loader/loader.component";
@@ -11,11 +11,11 @@ import { NavigationTrackerComponent } from "./core/components/navigation-tracker
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  private readonly timer$ = timer(2000);
+export class AppComponent implements OnInit{
+  private  timer$ = timer(2000);
   public loadingApp = true;
 
-  constructor() {
+  ngOnInit(): void {
     this.timer$.subscribe(() => this.loadingApp = false);
   }
 }
