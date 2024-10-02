@@ -17,9 +17,12 @@ html {
 }
 
 body {
-    width: 100%;
-    height: fit-content;
     font-family: "circular-medium", sans-serif;
+
+    @media (width > 1024px) {
+        display: flex;
+        justify-content: center;
+    }
 
     @media (width < 768px) {
         width: 100vw;
