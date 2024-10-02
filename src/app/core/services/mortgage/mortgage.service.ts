@@ -1,5 +1,6 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { Mortgage } from '../../interfaces/mortgage.interface';
+
+import { Mortgage } from '@interfaces/mortgage.interface';
 
 @Injectable({
   providedIn: 'root',

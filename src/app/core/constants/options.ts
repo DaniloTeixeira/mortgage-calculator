@@ -1,4 +1,4 @@
-import { Option } from 'src/app/core/interfaces/option.interface';
+import { Option } from '@interfaces/option.interface';
 
 export const OPTIONS: Option[] = [
     {

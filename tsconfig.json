@@ -21,6 +21,14 @@
       "dom"
     ],
     "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/app/core/components/*"],
+      "@pages/*": ["src/app/core/pages/*"],
+      "@services/*": ["src/app/core/services/*"],
+      "@interfaces/*": ["src/app/core/interfaces/*"],
+      "@constants/*": ["src/app/core/constants/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

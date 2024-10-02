@@ -1,10 +1,13 @@
-import { ChangeDetectionStrategy, Component, HostListener, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { OPTIONS } from '../../constants/options';
-import { Option } from '../../interfaces/option.interface';
+import { OPTIONS } from '@constants/options';
+import { Option } from '@interfaces/option.interface';
 
 @Component({
+  host: {
+    '(document:click)': 'trackClick($event)'
+  },
   selector: 'app-select',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule],
@@ -14,8 +17,13 @@ import { Option } from '../../interfaces/option.interface';
 
 })
 export class SelectComponent {
-  @HostListener('document:click', ['$event'])
-  trackClick(event: MouseEvent) {
+  public optionChosen = output<number>();
+
+  public options = OPTIONS;
+  public showOption = false;
+  public selectedOption = this.options[1];
+
+  public trackClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
 
     if (!target.closest('#za6e0804_2bd0_4672-b79d_d97027f9071a')) {
@@ -24,12 +32,6 @@ export class SelectComponent {
 
     event.stopPropagation();
   }
-
-  public optionChosen = output<number>();
-
-  public options = OPTIONS;
-  public showOption = false;
-  public selectedOption = this.options[1];
 
   public toggleShowOption(): void {
     this.showOption = !this.showOption;

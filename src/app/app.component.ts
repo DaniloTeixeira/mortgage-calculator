@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { timer } from 'rxjs';
-import { LoaderComponent } from "./core/components/loader/loader.component";
-import { NavigationTrackerComponent } from "./core/components/navigation-tracker/navigation-tracker.component";
+
+import { LoaderComponent } from "@components/loader";
+import { NavigationTrackerComponent } from "@components/navigation-tracker";
 
 @Component({
   selector: 'app-root',

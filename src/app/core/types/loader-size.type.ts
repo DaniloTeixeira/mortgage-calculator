@@ -1,1 +1,0 @@
-export type LoaderSize = 'xs' | 'sm' | 'md' | 'lg';

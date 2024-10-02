@@ -1,8 +1,9 @@
 import { NO_ERRORS_SCHEMA, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoaderService } from '../../services/loader';
-import { MortgageService } from '../../services/mortgage';
-import { CardCalculationComponent } from './card-calculation.component';
+
+import { CardCalculationComponent } from '@components/card-calculation';
+import { LoaderService } from '@services/loader';
+import { MortgageService } from '@services/mortgage';
 
 describe('CardCalculationComponent', () => {
   let component: CardCalculationComponent;

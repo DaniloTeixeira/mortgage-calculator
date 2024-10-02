@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AbstractControl, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 import { of } from 'rxjs';
-import { InputComponent } from './input.component';
+
+import { InputComponent } from '@components/input';
 
 describe('InputComponent', () => {
   let component: InputComponent;

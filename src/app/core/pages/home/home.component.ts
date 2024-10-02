@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { CardInputsComponent } from '../../components/card-inputs';
-import { FooterComponent } from '../../components/footer';
+
+import { CardInputsComponent } from '@components/card-inputs';
+import { FooterComponent } from '@components/footer';
 
 @Component({
   selector: 'app-home',
