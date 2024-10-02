@@ -53,9 +53,6 @@ describe('CardCalculationComponent', () => {
     expect(monthlyPaymentElement.textContent.trim()).toContain('1,000.00');
 });
 
-
-
-
   it('should display debt to income ratio correctly when not loading', () => {
     fixture.detectChanges(); 
 

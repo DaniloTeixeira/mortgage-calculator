@@ -7,7 +7,6 @@ import { LoaderService } from '../../services/loader';
 import { MortgageService } from '../../services/mortgage';
 import { LoaderComponent } from '../loader';
 
-
 @Component({
   selector: 'app-card-calculation',
   standalone: true,
@@ -19,9 +18,7 @@ import { LoaderComponent } from '../loader';
 export class CardCalculationComponent {
   private readonly loaderService = inject(LoaderService);
 
-  readonly blurValue = input.required<boolean>();
-  readonly mortgageService = inject(MortgageService);
-
-  readonly isLoading = this.loaderService.getIsLoading();
-
+  public readonly blurValue = input.required<boolean>();
+  public readonly mortgageService = inject(MortgageService);
+  public readonly isLoading = this.loaderService.getIsLoading();
 }

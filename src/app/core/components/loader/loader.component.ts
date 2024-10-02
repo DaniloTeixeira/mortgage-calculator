@@ -12,7 +12,7 @@ import { LoaderSize } from 'src/app/core/types/loader-size.type';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoaderComponent {
-  readonly class = input<string>();
-  readonly initialLoader = input(false);
-  readonly size = input<LoaderSize>('lg');
+  public readonly class = input<string>();
+  public readonly initialLoader = input(false);
+  public readonly size = input<LoaderSize>('lg');
 }

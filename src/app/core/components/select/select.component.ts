@@ -25,17 +25,17 @@ export class SelectComponent {
     event.stopPropagation();
   }
 
-  optionChosen = output<number>();
+  public optionChosen = output<number>();
 
-  options = OPTIONS;
-  showOption = false;
-  selectedOption = this.options[1];
+  public options = OPTIONS;
+  public showOption = false;
+  public selectedOption = this.options[1];
 
-  toggleShowOption() {
+  public toggleShowOption(): void {
     this.showOption = !this.showOption;
   }
 
-  selectOption(option: Option) {
+  public selectOption(option: Option): void {
     if (option === this.selectedOption) {
       return;
     }

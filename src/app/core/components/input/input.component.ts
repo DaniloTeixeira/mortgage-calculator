@@ -14,19 +14,19 @@ import { NgxMaskDirective } from 'ngx-mask';
 export class InputComponent implements ControlValueAccessor {
   private readonly ngControl = inject(NgControl);
 
-  controlInput = new FormControl<number | null>(null);
+  public controlInput = new FormControl<number | null>(null);
 
-  iconInput = input('');
-  inputClass = input('');
-  required = input(false);
-
-  iconLabel = input<string>();
-  altIconLabel = input<string>();
-  altIconInput = input<string>();
-  label = input<string | null>();
-
-  onTouch?: () => void;
-  onChange?: (_: number | null) => void;
+  public iconInput = input('');
+  public inputClass = input('');
+  public required = input(false);
+ 
+  public iconLabel = input<string>();
+  public altIconLabel = input<string>();
+  public altIconInput = input<string>();
+  public label = input<string | null>();
+ 
+  public onTouch?: () => void;
+  public onChange?: (_: number | null) => void;
 
   constructor() {
     this.ngControl.valueAccessor = this;
@@ -39,15 +39,15 @@ export class InputComponent implements ControlValueAccessor {
     });
   }
 
-  writeValue(value: number): void {
+  public writeValue(value: number): void {
     this.controlInput.setValue(value);
   }
 
-  registerOnChange(fn: (() => void)): void {
+  public registerOnChange(fn: (() => void)): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: (() => void)): void {
+  public registerOnTouched(fn: (() => void)): void {
     this.onTouch = fn;
   }
 }

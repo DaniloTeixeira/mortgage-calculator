@@ -9,11 +9,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationTrackerComponent {
-  selectedNavigationItem = 2;
-  readonly navigationTrackerItems = Array.from({ length: 8 });
+  public selectedNavigationItem = 2;
+  public readonly navigationTrackerItems = Array.from({ length: 8 });
 
-  // Simulates the navigation tracker
-  onSelectedItem(index: number) {
+  // Simulates the navigation tracker (Visual purposes only)
+  public onSelectedItem(index: number): void {
     this.selectedNavigationItem = index;
   }
 }

@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { debounceTime, delay, distinctUntilChanged, filter, tap, timer } from 'rxjs';
-import { Mortgage } from '../../interfaces/mortgage.interface';
+import { Mortgage, MortgageForm } from '../../interfaces/mortgage.interface';
 import { LoaderService } from '../../services/loader';
 import { MortgageService } from '../../services/mortgage';
 import { CardCalculationComponent } from '../card-calculation';
@@ -28,14 +28,12 @@ export class CardInputsComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
   private readonly loaderService = inject(LoaderService);
 
-  readonly mortgageService = inject(MortgageService);
+  public readonly mortgageService = inject(MortgageService);
+  public readonly form = this.buildForm();
 
-  readonly form = this.buildForm();
-
-  shouldBlurCaculationValues = true;
-  selectedOption: string | null = null;
-
-  timer$ = timer(1000);
+  public shouldBlurCaculationValues = true;
+  public selectedOption: string | null = null;
+  public timer$ = timer(1000);
 
   ngOnInit(): void {
     this.loadCalculation();
@@ -74,7 +72,7 @@ export class CardInputsComponent implements OnInit {
     this.mortgageService.setValues(formValue as Mortgage);
   }
 
-  private buildForm() {
+  private buildForm(): FormGroup<MortgageForm> {
     return this.fb.group({
       borrowingAmount: [826800, Validators.required],
       purchasePrice: [910000, Validators.required],
@@ -84,13 +82,13 @@ export class CardInputsComponent implements OnInit {
     });
   }
 
-  private loadCalculation() {
+  private loadCalculation(): void {
     this.timer$.subscribe(() => {
       this.shouldBlurCaculationValues = false;
     });
   }
 
-  setpreferredRepaymentPeriod(period: number) {
+  public setpreferredRepaymentPeriod(period: number): void {
     this.form.controls.repaymentPeriod.setValue(period);
   }
 }
