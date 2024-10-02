@@ -17,8 +17,7 @@ describe('SelectComponent', () => {
     fixture = TestBed.createComponent(SelectComponent);
     component = fixture.componentInstance;
 
-    // Defina a opção padrão para um valor que você espera
-    component.selectedOption = component.options[1]; // ou outra lógica para definir a opção inicial
+    component.selectedOption = component.options[1];
     fixture.detectChanges();
   });
 
@@ -46,10 +45,10 @@ describe('SelectComponent', () => {
     const emitSpy = jest.spyOn(component.optionChosen, 'emit');
 
     const customSelectElement = fixture.debugElement.query(By.css('.custom-select'));
-    customSelectElement.triggerEventHandler('click', null); // Abre as opções
+    customSelectElement.triggerEventHandler('click', null);
     fixture.detectChanges();
 
-    const optionElement = fixture.debugElement.queryAll(By.css('.custom-select__option'))[0]; // Seleciona a primeira opção
+    const optionElement = fixture.debugElement.queryAll(By.css('.custom-select__option'))[0];
     optionElement.triggerEventHandler('click', null);
     fixture.detectChanges();
 
@@ -60,40 +59,32 @@ describe('SelectComponent', () => {
   it('should not change selectedOption if the same option is selected', () => {
     component.options = OPTIONS
 
-    const initialSelectedOption = component.selectedOption; // 'Option 2'
+    const initialSelectedOption = component.selectedOption;
 
-    // Chama selectOption com a mesma opção
-    component.selectOption(initialSelectedOption); // Passa 'Option 2' novamente
+    component.selectOption(initialSelectedOption);
 
-    // Verifica se selectedOption ainda é a mesma
     expect(component.selectedOption).toBe(initialSelectedOption);
 
-    // Opcional: Verifique se a propriedade "selected" da opção permanece falsa
     const selectedOptionInList = component.options.find(opt => opt.id === initialSelectedOption.id);
-    expect(selectedOptionInList?.selected).toBe(false); // 'Option 2' não deve ter a propriedade 'selected' alterada
+    expect(selectedOptionInList?.selected).toBe(false);
   });
 
   it('should set showOption to false when clicking outside', () => {
-    // Simulando um clique fora do componente
     const event = new MouseEvent('click', {
       bubbles: true,
       cancelable: true,
       composed: true,
     });
 
-    // Criar um elemento para simular o clique fora
     const outsideElement = document.createElement('div');
     outsideElement.id = 'outside-element';
     document.body.appendChild(outsideElement);
 
-    // Dispara o evento de clique
     outsideElement.dispatchEvent(event);
-    fixture.detectChanges(); // Atualiza o fixture após o evento
+    fixture.detectChanges();
 
-    // Verifica se showOption foi definido como false
     expect(component.showOption).toBe(false);
 
-    // Limpa o elemento fora do DOM
     document.body.removeChild(outsideElement);
   });
 
@@ -104,14 +95,11 @@ describe('SelectComponent', () => {
       composed: true,
     });
 
-    // Simulando um clique dentro do componente
     const customSelectElement = fixture.debugElement.nativeElement.querySelector('#za6e0804_2bd0_4672-b79d_d97027f9071a');
     
-    // Dispara o evento de clique no elemento dentro do componente
     customSelectElement.dispatchEvent(event);
-    fixture.detectChanges(); // Atualiza o fixture após o evento
+    fixture.detectChanges();
 
-    // Verifica se showOption ainda é true
     expect(component.showOption).toBe(true);
   });
 });

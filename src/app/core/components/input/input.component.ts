@@ -20,10 +20,10 @@ export class InputComponent implements ControlValueAccessor {
   inputClass = input('');
   required = input(false);
 
-  iconLabel = input.required<string>();
-  altIconLabel = input.required<string>();
-  altIconInput = input.required<string>();
-  label = input.required<string | null>();
+  iconLabel = input<string>();
+  altIconLabel = input<string>();
+  altIconInput = input<string>();
+  label = input<string | null>();
 
   onTouch?: () => void;
   onChange?: (_: number | null) => void;
