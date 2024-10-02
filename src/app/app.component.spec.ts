@@ -46,5 +46,5 @@ describe('AppComponent', () => {
     jest.advanceTimersByTime(2000);
 
     expect(component.loadingApp).toBe(false);
-  });
+ });
 });
