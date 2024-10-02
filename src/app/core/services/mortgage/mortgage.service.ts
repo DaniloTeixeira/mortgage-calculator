@@ -11,10 +11,10 @@ export class MortgageService {
   private grossIncome = signal(225000);
   private interestRate = signal(3.65);
 
-  readonly termYears = computed(() => this.repaymentPeriod());
-  readonly loanToValue = computed(() => this.calculateLoanToValue());
-  readonly debtToIncome = computed(() => this.calculateDebtToIncome());
-  readonly monthlyPayment = computed(() => this.calculateMonthlyPayment());
+  public readonly termYears = computed(() => this.repaymentPeriod());
+  public readonly loanToValue = computed(() => this.calculateLoanToValue());
+  public readonly debtToIncome = computed(() => this.calculateDebtToIncome());
+  public readonly monthlyPayment = computed(() => this.calculateMonthlyPayment());
 
   private calculateMonthlyPayment(): number {
     const principal = this.borrowingAmount();
@@ -45,7 +45,7 @@ export class MortgageService {
     return loanAmount && purchasePrice ? (loanAmount / purchasePrice) : 0;
   }
 
-  setValues(mortgage: Mortgage) {
+  public setValues(mortgage: Mortgage) {
     this.borrowingAmount.set(mortgage.borrowingAmount);
     this.purchasePrice.set(mortgage.purchasePrice);
     this.repaymentPeriod.set(mortgage.repaymentPeriod);

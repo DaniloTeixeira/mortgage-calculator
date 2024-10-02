@@ -28,14 +28,13 @@ export class CardInputsComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
   private readonly loaderService = inject(LoaderService);
 
-  readonly mortgageService = inject(MortgageService);
+  public readonly mortgageService = inject(MortgageService);
+  public readonly form = this.buildForm();
 
-  readonly form = this.buildForm();
+  public shouldBlurCaculationValues = true;
+  public selectedOption: string | null = null;
 
-  shouldBlurCaculationValues = true;
-  selectedOption: string | null = null;
-
-  timer$ = timer(1000);
+  public readonly timer$ = timer(1000);
 
   ngOnInit(): void {
     this.loadCalculation();

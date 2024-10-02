@@ -12,7 +12,8 @@ import { NavigationTrackerComponent } from "./core/components/navigation-tracker
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
-  private  timer$ = timer(2000);
+  private timer$ = timer(2000);
+  
   public loadingApp = true;
 
   ngOnInit(): void {

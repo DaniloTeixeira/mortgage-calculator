@@ -6,11 +6,11 @@ import { Injectable, computed, signal } from '@angular/core';
 export class LoaderService {
   private isLoading = signal(false);
 
-  setIsLoading(isLoading: boolean) {
+  public setIsLoading(isLoading: boolean) {
     this.isLoading.set(isLoading);
   }
 
-  getIsLoading() {
+  public getIsLoading() {
     return computed(() => this.isLoading());
   }
 
