@@ -1,9 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
-import { SelectComponent } from 'src/app/core/components/select';
-import { OPTIONS } from 'src/app/core/constants/options';
+import { OPTIONS } from '../../constants/options';
+import { SelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
   let component: SelectComponent;
