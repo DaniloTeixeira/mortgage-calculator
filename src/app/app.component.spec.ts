@@ -36,7 +36,7 @@ describe('AppComponent', () => {
     expect(loaderElement).toBeTruthy();
   });
 
-  it('should change loadingApp to false after 2 seconds', () => {
+  it('should change loadingApp to false after 2 seconds', (done) => {
     jest.useFakeTimers(); 
     
     component.ngOnInit();
@@ -46,5 +46,6 @@ describe('AppComponent', () => {
     jest.advanceTimersByTime(2000);
 
     expect(component.loadingApp).toBe(false);
+    done();
  });
 });
