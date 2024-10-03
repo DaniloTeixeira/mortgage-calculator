@@ -23,6 +23,7 @@
     "@angular/router": "^18.1.0",
     "@jest/globals": "^29.7.0",
     "ngx-mask": "^18.0.0",
+    "prettier": "^3.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
