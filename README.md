@@ -27,7 +27,7 @@ You can view the unit tests results on the following path: `src/assets/images/un
 You can view the design specifications on Figma [here](https://www.figma.com/design/5w8L063gBSy1OaxTQ8x3AL/Design-Challenges?node-id=4274-364).
 
 ## 5. Live Demo (Deployed on Vercel)
-Check out the live version of the app [here](https://mortgage-calculator-dusky.vercel.app/home).
+Check out the live version of the app [here](https://mortgage-calculator-dusky.vercel.app).
 
 ## 6. Contact Information
 - You can contact me via WhatsApp: [here](https://wa.me/5511964160074).
