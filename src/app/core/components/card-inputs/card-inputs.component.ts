@@ -15,18 +15,18 @@ import { MortgageService } from '@services/mortgage';
 
 const MODULES = [CommonModule, MatTooltipModule, FormsModule, ReactiveFormsModule];
 
-const COMPONENTS = [InputComponent, SelectComponent, CardCalculationComponent, NavigationTrackerComponent];
+const COMPONENTS = [SelectComponent, CardCalculationComponent, NavigationTrackerComponent, InputComponent];
 
 @Component({
   selector: 'app-card-inputs',
   standalone: true,
-  imports: [...MODULES, ...COMPONENTS,],
+  imports: [...MODULES, ...COMPONENTS],
   templateUrl: './card-inputs.component.html',
   styleUrl: './card-inputs.component.scss'
 })
 export class CardInputsComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
-  private readonly loaderService = inject(LoaderService);
+  public readonly loaderService = inject(LoaderService);
 
   public readonly mortgageService = inject(MortgageService);
   public readonly form = this.buildForm();
@@ -41,25 +41,27 @@ export class CardInputsComponent implements OnInit {
   }
 
   private formChangesListener(): void {
-    this.form.valueChanges.pipe(
-      filter(() => this.form.valid),
-      debounceTime(500),
-      distinctUntilChanged((prev, curr) => {
-        return (
-          prev.borrowingAmount === curr.borrowingAmount &&
-          prev.purchasePrice === curr.purchasePrice &&
-          prev.repaymentPeriod === curr.repaymentPeriod &&
-          prev.grossIncome === curr.grossIncome &&
-          prev.interestRate === curr.interestRate
-        );
-      }),
-      tap(() => this.loaderService.setIsLoading(true)),
-      delay(1000)
-    ).subscribe(() => {
-      this.setMortgageValues();
+    this.form.valueChanges
+      .pipe(
+        filter(() => this.form.valid),
+        debounceTime(500),
+        distinctUntilChanged((prev, curr) => {
+          return (
+            prev.borrowingAmount === curr.borrowingAmount &&
+            prev.purchasePrice === curr.purchasePrice &&
+            prev.repaymentPeriod === curr.repaymentPeriod &&
+            prev.grossIncome === curr.grossIncome &&
+            prev.interestRate === curr.interestRate
+          );
+        }),
+        tap(() => this.loaderService.setIsLoading(true)),
+        delay(1000)
+      )
+      .subscribe(() => {
+        this.setMortgageValues();
 
-      this.loaderService.setIsLoading(false);
-    });
+        this.loaderService.setIsLoading(false);
+      });
   }
 
   private setMortgageValues(): void {
@@ -74,7 +76,7 @@ export class CardInputsComponent implements OnInit {
       purchasePrice: [910000, Validators.required],
       repaymentPeriod: [30, Validators.required],
       grossIncome: [225000, Validators.required],
-      interestRate: [3.65, Validators.required],
+      interestRate: [3.65, Validators.required]
     });
   }
 
